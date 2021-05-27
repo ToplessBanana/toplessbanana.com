@@ -11,4 +11,6 @@ Resolved is a system-wide menu bar app for switching between both supported and 
 
 ResolvedCLI provides a command-line interface for Resolved, where changes made here persist between login sessions.
 
+{% include image.html path="documentation/resolved-cli.png" path-detail="documentation/resolved-cli@2x.png" alt="resolved" %}
+
 Learn more at [ToplessBanana/Resolved](https://github.com/ToplessBanana/Resolved) on GitHub.
