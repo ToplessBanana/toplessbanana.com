@@ -1,4 +1,4 @@
 ---
-slug: linux
-name: linux
+slug: random
+name: random
 ---
