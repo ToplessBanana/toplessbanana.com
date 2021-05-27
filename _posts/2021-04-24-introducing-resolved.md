@@ -5,7 +5,7 @@ description: ""
 tags: [project]
 ---
 
-{% include image.html path="documentation/resolved.png" path-detail="documentation/resolved@2x.png" alt="Chalk intro" %}
+{% include image.html path="documentation/resolved.png" path-detail="documentation/resolved@2x.png" alt="resolved" %}
 
 Resolved is a system-wide menu bar app for switching between both supported and unsupported display modes on the primary display.
 
