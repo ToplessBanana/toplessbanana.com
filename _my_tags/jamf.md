@@ -1,4 +1,0 @@
----
-slug: jamf
-name: jamf
----

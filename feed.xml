@@ -1,20 +1,66 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:dc="https://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>ToplessBanana</title>
+    <description></description>
+    <link>https://toplessbanana.com</link>
+    <atom:link href="https://toplessbanana.com/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>Site Reliability Engineering</title>
+        <description></description>
+        <pubDate>Sun, 11 Jul 2021 00:00:00 -0500</pubDate>
+        <link>https://toplessbanana.com/posts/site-reliability-engineering</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/site-reliability-engineering</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Introducing Loggins</title>
+        <description></description>
+        <pubDate>Wed, 05 May 2021 00:00:00 -0500</pubDate>
+        <link>https://toplessbanana.com/posts/introducing-loggins</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/introducing-loggins</guid>
+      </item>
+    
+      <item>
+        <title>Introducing Resolved</title>
+        <description></description>
+        <pubDate>Sat, 24 Apr 2021 00:00:00 -0500</pubDate>
+        <link>https://toplessbanana.com/posts/introducing-resolved</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/introducing-resolved</guid>
+      </item>
+    
+      <item>
+        <title>Oracle vs Google Decided</title>
+        <description></description>
+        <pubDate>Tue, 06 Apr 2021 00:00:00 -0500</pubDate>
+        <link>https://toplessbanana.com/posts/oracle-vs-google-decided</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/oracle-vs-google-decided</guid>
+      </item>
+    
+      <item>
+        <title>Configure WiFi Access on Ubuntu Server</title>
+        <description></description>
+        <pubDate>Thu, 02 Apr 2020 00:00:00 -0500</pubDate>
+        <link>https://toplessbanana.com/posts/configure-wireless-on-ubuntu-server</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/configure-wireless-on-ubuntu-server</guid>
+      </item>
+    
+      <item>
+        <title>Report When Application Last Opened</title>
+        <description></description>
+        <pubDate>Mon, 18 Mar 2019 00:00:00 -0500</pubDate>
+        <link>https://toplessbanana.com/posts/report-when-application-last-opened</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/report-when-application-last-opened</guid>
+      </item>
+    
+      <item>
+        <title>Welcome to ToplessBanana</title>
+        <description></description>
+        <pubDate>Sat, 16 Jan 2016 00:00:00 -0600</pubDate>
+        <link>https://toplessbanana.com/posts/welcome-to-topless-banana</link>
+        <guid isPermaLink="true">https://toplessbanana.com/posts/welcome-to-topless-banana</guid>
+      </item>
+    
   </channel>
 </rss>

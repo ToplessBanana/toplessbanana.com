@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>ToplessBanana | Page not found</title>
-  <meta name="description" content="Page not found">
+  <title>ToplessBanana | Report When Application Last Opened</title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="Page not found">
+  <meta property="og:title" content="Report When Application Last Opened">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toplessbanana.com/404.html">
-  <meta property="og:description" content="Page not found">
+  <meta property="og:url" content="https://toplessbanana.com/posts/report-when-application-last-opened">
+  <meta property="og:description" content="">
   <meta property="og:site_name" content="ToplessBanana">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="https://toplessbanana.com/404.html">
-  <meta name="twitter:title" content="Page not found">
-  <meta name="twitter:description" content="Page not found">
+  <meta name="twitter:url" content="https://toplessbanana.com/posts/report-when-application-last-opened">
+  <meta name="twitter:title" content="Report When Application Last Opened">
+  <meta name="twitter:description" content="">
 
   
     <meta property="og:image" content="https://toplessbanana.com/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
@@ -147,15 +147,72 @@
   </ul>
 
 
-        <div class="notfound-wrapper">
-  <div class="notfound-content">
-    <p>
-      Looks like you got lost.
-      <br>
-      Let's get you back to the <a href="/">homepage</a>!
-    </p>
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Report When Application Last Opened</h1>
+            <p></p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    March 18, 2019
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      1 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/jamf" title="See all posts with tag 'jamf'">jamf</a>
+    
   </div>
 </div>
+          </header>
+
+          <div class="article-content">
+            <p>While Jamf Pro is capable of collecting Application Usage data, sometimes we just want to know when an application was last opened. This information is especially helpful when reclaiming unused licenses or retiring unused software.</p>
+
+<p>Create an Extension Attribute in Jamf Pro using the <strong>Date</strong> data type. Then select <strong>Script</strong> for the input and paste in the following snippet. Though <em>Self Service</em> is used here, any application path can be substituted.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+
+<span class="nv">APPLICATION_PATH</span><span class="o">=</span>/Applications/Self<span class="se">\ </span>Service.app
+
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$APPLICATION_PATH</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">result</span><span class="o">=</span><span class="s2">"Not Present"</span>
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="nt">-e</span> <span class="s2">"</span><span class="nv">$APPLICATION_PATH</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">result</span><span class="o">=</span><span class="sb">`</span>/usr/bin/mdls <span class="s2">"</span><span class="nv">$APPLICATION_PATH</span><span class="s2">"</span> | /usr/bin/grep <span class="nt">-w</span> <span class="s2">"kMDItemLastUsedDate"</span> | /usr/bin/awk <span class="s1">'{ print $3 }'</span><span class="sb">`</span>
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$result</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">""</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">result</span><span class="o">=</span><span class="s2">"2001-01-01 01:01:01"</span>
+<span class="k">fi</span>
+
+/bin/echo <span class="s2">"&lt;result&gt;</span><span class="nv">$result</span><span class="s2">&lt;/result&gt;"</span></code></pre></figure>
+
+<p>Now that we are collecting this information it can be used when creating Smart Computer Groups or Advanced Computer Searches.</p>
+
+<p>There is also a <a href="https://www.jamf.com/jamf-nation/feature-requests/10453/report-date-application-last-opened">Feature Request</a> for this on the Jamf Nation website.</p>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Report+When+Application+Last+Opened%20-%20https://toplessbanana.com/posts/report-when-application-last-opened%20by%20@poomnky" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://toplessbanana.com/posts/report-when-application-last-opened" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div>
+
+          
+        </article>
         <footer class="footer scrollappear">
   <p>
     ToplessBanana is hosted on <a href="https://pages.github.com">GitHub Pages</a>.
