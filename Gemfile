@@ -12,3 +12,5 @@ gem "mini_magick"
 gem "sass"
 gem "sprockets", "~> 3.7"
 gem "uglifier"
+
+gem "sassc", "~> 2.4"
